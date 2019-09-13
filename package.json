@@ -1,0 +1,25 @@
+{
+    "name": "vpdemo1",
+    "version": "1.0.0",
+    "description": "Fascinating sentence",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "docs:build": "vuepress build"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/tomcam/vpdemo1.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/tomcam/vpdemo1/issues"
+    },
+    "homepage": "https://github.com/tomcam/vpdemo1#readme",
+    "dependencies": {
+      "vuepress": "^0.12.0",
+      "buefy": "^0.8.3"
+    }
+  }
