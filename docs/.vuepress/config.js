@@ -7,7 +7,7 @@ module.exports = {
         nav: [
             { text: 'Intro', link: '/' },
             { text: 'Data', link: '/datainventory/' },
-            { text: 'Packages', link: 'https://google.com' },
+            { text: 'Packages', link: '/packageinventory/' },
           ]
     }
 }
