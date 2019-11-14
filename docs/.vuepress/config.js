@@ -1,5 +1,5 @@
 module.exports = {
-    title: 'PerfusionMRI inventory',
+    title: 'Perfusion inventory (experimental)',
     themeConfig: {
         docsDir: 'docs',
         nextLinks: false,

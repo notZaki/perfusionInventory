@@ -4,4 +4,4 @@ pageClass: custom-page-class
 
 # Introduction
 
-These pages are just some tests/attempts at managing a data inventory.
+This is an experimental website that contains a [software inventory](./packageinventory) and a [data inventory](./datainventory) for perfusion MRI. 

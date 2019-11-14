@@ -189,6 +189,10 @@
                                         <td>{{ props.row.dependencies }} </td>
                                     </tr>
                                     <tr>
+                                        <td><strong>OS</strong></td>
+                                        <td>{{ props.row.operatingsystem }} </td>
+                                    </tr>
+                                    <tr>
                                         <td><strong>Input data</strong></td>
                                         <td>{{ props.row.inputdata ? props.row.inputdata : 'Unknown' }} </td>
                                     </tr>

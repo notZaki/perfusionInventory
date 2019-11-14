@@ -1,24 +1,16 @@
 {
-  "name": "vpdemo1",
-  "version": "1.0.0",
-  "description": "Fascinating sentence",
+  "name": "perfusioninventory",
+  "version": "0.0.1",
+  "description": "Experimental website for perfusion data/software inventory",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tomcam/vpdemo1.git"
-  },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tomcam/vpdemo1/issues"
-  },
-  "homepage": "https://github.com/tomcam/vpdemo1#readme",
+  "license": "MIT",
   "dependencies": {
     "vuepress": "^1.0.4",
     "buefy": "^0.8.3"
