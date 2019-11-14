@@ -4,6 +4,7 @@ module.exports = {
         docsDir: 'docs',
         nextLinks: false,
         prevLinks: false,
+        search: false,
         nav: [
             { text: 'Intro', link: '/' },
             { text: 'Data', link: '/datainventory/' },

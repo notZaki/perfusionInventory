@@ -1,7 +1,8 @@
 <template>
     <section>
         <b-field grouped group-multiline>
-            <!-- <div class="control is-flex">
+            <!-- Disabled pagination because table is small already.
+            <div class="control is-flex">
                 <b-switch v-model="isPaginated">Paginated</b-switch>
             </div>
             <b-select v-model="perPage" :disabled="!isPaginated">
@@ -9,7 +10,8 @@
                 <option value="20">20 / page</option>
                 <option value="30">30 / page</option>
                 <option value="40">50 / page</option>
-            </b-select> -->
+            </b-select> 
+            -->
             <div v-for="(column, index) in visiblecols"
                  :key="index"
                  class="control">
@@ -74,14 +76,6 @@
                 </b-table-column>
 
                 <b-table-column 
-                field="size" 
-                label="Size" 
-                :visible="visiblecols['size'].display" 
-                sortable>
-                    {{ props.row.size }}
-                </b-table-column>
-
-                <b-table-column 
                 field="format" 
                 label="Format" 
                 :visible="visiblecols['format'].display" 
@@ -98,7 +92,7 @@
                 </b-table-column>
 
                 <b-table-column 
-                field="isPublic"
+                field="is_public"
                 label="Public" 
                 :visible="visiblecols['public'].display"
                 sortable>
@@ -134,11 +128,13 @@
 
             <template slot="detail" slot-scope="props">
                 <article class="media">
-                    <!-- <figure class="media-left">
+                    <!-- Disabled logo/figure for now. Could be enabled later.
+                    <figure class="media-left">
                         <p class="image is-64x64">
                             <img src="/static/img/placeholder-128x128.png">
                         </p>
-                    </figure> -->
+                    </figure> 
+                    -->
                     <div class="media-content">
                         <div class="content">
                             <p>
@@ -147,6 +143,16 @@
                                 <p v-html="props.row.description">
                                 {{ props.row.description }}
                                 </p>
+                                <table style="width:100%">
+                                    <tr>
+                                        <td><strong>Size</strong></td>
+                                        <td>{{ props.row.size }} </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Format</strong></td>
+                                        <td>{{ props.row.format }} </td>
+                                    </tr>
+                                </table>
                             </p>
                         </div>
                     </div>
@@ -158,12 +164,10 @@
 </template>
 
 <script>
-    const data = require('./data/data.json')
-
     export default {
         data() {
             return {
-                data,
+                data: [],
                 "isPaginated": false,
                 "perPage": 20,
                 visiblecols: {
@@ -172,7 +176,6 @@
                     public: { title: 'Public', display: true },
                     amount: { title: 'Amount', display: true },
                     anatomy: { title: 'Anatomy', display: true },
-                    size: { title: 'Size', display: true },
                     format: { title: 'Format', display: true },
                     sequence: { title: 'Sequence', display: true },
                     publication: { title: 'Publication', display: true },
@@ -184,6 +187,11 @@
             toggle(row) {
                 this.$refs.table.toggleDetails(row)
             }
+        },
+        mounted () {
+            this.axios
+            .get('https://raw.githubusercontent.com/notZaki/inventory/master/data.json')
+            .then(response => (this.data = response.data))
         }
     }
 </script>

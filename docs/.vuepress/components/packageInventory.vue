@@ -1,7 +1,8 @@
 <template>
     <section>
         <b-field grouped group-multiline>
-            <!-- <div class="control is-flex">
+            <!-- Disabled pagination because table is small already.
+            <div class="control is-flex">
                 <b-switch v-model="isPaginated">Paginated</b-switch>
             </div>
             <b-select v-model="perPage" :disabled="!isPaginated">
@@ -9,7 +10,8 @@
                 <option value="20">20 / page</option>
                 <option value="30">30 / page</option>
                 <option value="40">50 / page</option>
-            </b-select> -->
+            </b-select> 
+            -->
             <div v-for="(column, index) in visiblecols"
                  :key="index"
                  class="control">
@@ -162,11 +164,13 @@
 
             <template slot="detail" slot-scope="props">
                 <article class="media">
-                    <!-- <figure class="media-left">
+                    <!-- Disabled logo/figure for now. Could be enabled later.
+                    <figure class="media-left">
                         <p class="image is-64x64">
                             <img src="/static/img/placeholder-128x128.png">
                         </p>
-                    </figure> -->
+                    </figure> 
+                    -->
                     <div class="media-content">
                         <div class="content">
                             <p>
@@ -208,12 +212,10 @@
 </template>
 
 <script>
-    const data = require('./data/software.json')
-
     export default {
         data() {
             return {
-                data,
+                data: [],
                 "isPaginated": false,
                 "perPage": 20,
                 visiblecols: {
@@ -230,9 +232,14 @@
             }
         },
         methods: {
-            toggle(row) {
+             toggle(row) {
                 this.$refs.table.toggleDetails(row)
             }
+        },
+        mounted () {
+            this.axios
+            .get('https://raw.githubusercontent.com/notZaki/inventory/master/software.json')
+            .then(response => (this.data = response.data))
         }
     }
 </script>
