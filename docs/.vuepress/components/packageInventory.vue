@@ -248,6 +248,9 @@
     @import 'https://cdn.materialdesignicons.com/2.5.94/css/materialdesignicons.min.css';
     @import 'https://use.fontawesome.com/releases/v5.2.0/css/all.css';
     
+    .b-table .table {
+        border-collapse: collapse;
+    }
     .tag:not(body).is-dce {
         background-color: #20639b;
         color:white;
